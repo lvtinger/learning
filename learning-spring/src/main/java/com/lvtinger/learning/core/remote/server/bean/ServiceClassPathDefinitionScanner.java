@@ -1,4 +1,4 @@
-package com.lvtinger.learning.core.remote.server;
+package com.lvtinger.learning.core.remote.server.bean;
 
 import com.lvtinger.learning.core.annotation.ExportService;
 import org.springframework.beans.factory.annotation.AnnotatedBeanDefinition;

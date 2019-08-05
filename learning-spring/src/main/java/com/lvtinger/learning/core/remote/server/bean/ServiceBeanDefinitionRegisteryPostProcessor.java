@@ -1,4 +1,4 @@
-package com.lvtinger.learning.core.remote.server;
+package com.lvtinger.learning.core.remote.server.bean;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
