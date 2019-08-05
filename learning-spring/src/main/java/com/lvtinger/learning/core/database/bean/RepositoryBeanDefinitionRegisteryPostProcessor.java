@@ -16,14 +16,16 @@ public class RepositoryBeanDefinitionRegisteryPostProcessor
     @Override
     public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry)
             throws BeansException {
-        RepositoryClassPathDefinitionScanner scanner = new RepositoryClassPathDefinitionScanner(registry);
+        RepositoryClassPathDefinitionScanner scanner =
+                new RepositoryClassPathDefinitionScanner(registry);
         scanner.setResourceLoader(this.applicationContext);
         scanner.scan("com.lvtinger.learning");
     }
 
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory)
-            throws BeansException {}
+            throws BeansException {
+    }
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {

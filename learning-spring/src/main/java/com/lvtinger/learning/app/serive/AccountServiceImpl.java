@@ -9,7 +9,6 @@ import com.lvtinger.learning.core.annotation.ExportService;
         version = {"1.0"})
 public class AccountServiceImpl implements AccountService {
 
-
     private AccountRepository repository;
 
     public Account register(Account account) {

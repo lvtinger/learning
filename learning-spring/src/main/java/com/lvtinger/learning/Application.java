@@ -4,7 +4,6 @@ import com.lvtinger.learning.app.entity.Account;
 import com.lvtinger.learning.app.serive.AccountService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-
 public class Application {
 
     public static final String PACKAGE_NAME = "com.lvtinger.learning";
