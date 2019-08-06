@@ -12,9 +12,17 @@ import java.util.List;
 import java.util.Map;
 
 public class RepositoryProxyFactoryImpl implements RepositoryProxyFactory {
+
+    private ClassLoader classLoader;
+
+    public RepositoryProxyFactoryImpl() {
+        this.classLoader = ClassUtils.getDefaultClassLoader();
+    }
+
+    @SuppressWarnings("unchecked")
     @Override
     public <T> T instance(Class<T> type) {
-        List<Method> methods = ClassUtils.scanMethod(type);
+        List<Method> methods = ClassUtils.scanInterfaceMethod(type);
 
         if (CollectionUtils.isEmpty(methods)) {
             throw new RuntimeException();
@@ -27,10 +35,8 @@ public class RepositoryProxyFactoryImpl implements RepositoryProxyFactory {
             executorMapping.put(method, executor);
         }
 
-        RepositoryProxy proxy = new RepositoryProxy(executorMapping);
+        RepositoryProxy proxy = new RepositoryProxy(type, executorMapping);
 
-        return (T) Proxy.newProxyInstance(ClassUtils.getDefaultClassLoader(),
-                new Class[]{type},
-                proxy);
+        return (T) Proxy.newProxyInstance(this.classLoader, new Class[]{type}, proxy);
     }
 }
