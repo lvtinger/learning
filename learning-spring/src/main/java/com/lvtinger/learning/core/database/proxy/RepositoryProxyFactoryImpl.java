@@ -22,6 +22,9 @@ public class RepositoryProxyFactoryImpl implements RepositoryProxyFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> T instance(Class<T> type) {
+
+        // todo spi:mysql, mongodb, elastic search and so on
+
         List<Method> methods = ClassUtils.scanInterfaceMethod(type);
 
         if (CollectionUtils.isEmpty(methods)) {
