@@ -1,12 +1,15 @@
 package com.lvtinger.learning.test;
 
-import com.lvtinger.learning.test.access.DataAccess;
+import com.lvtinger.learning.utils.FileUtils;
 
-import java.util.ServiceLoader;
+import java.io.File;
+import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
-        ServiceLoader<DataAccess> accesses = ServiceLoader.load(DataAccess.class);
-        accesses.forEach(access -> System.out.println(access.toString()));
+        List<File> files = FileUtils.getResourceInDirectory("provider");
+        for (File file : files) {
+            System.out.println(file.getName());
+        }
     }
 }
